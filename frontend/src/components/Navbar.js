@@ -2,21 +2,19 @@ import React, { Component } from "react";
 
 import styled from "styled-components";
 import {NavLink as Link} from "react-router-dom";
+import {FaCode} from "react-icons/fa";
 
 class Navbar extends Component{
     render(){
         return(
             <Nav>
                 <NavLink to="/">
-                    <h1>Logo</h1>
+                    <FaCode size={54}/>
                 </NavLink>
 
                 <NavMenu>
                     <NavLink to="/about" activeStyle>
                         About
-                    </NavLink>
-                    <NavLink to="/services" activeStyle>
-                        Services
                     </NavLink>
                     <NavLink to="/contact-us" activeStyle>
                         Contact
@@ -27,7 +25,7 @@ class Navbar extends Component{
                 </NavMenu>
 
                 <NavBtn>
-                    <NavBtnLink to="sigin">
+                    <NavBtnLink to="/sign-in">
                         Sig in
                     </NavBtnLink>
                 </NavBtn>

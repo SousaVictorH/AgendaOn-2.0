@@ -3,14 +3,14 @@ import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
-function Register(){
+function About(){
     return(
         <div>
             <Navbar/>
-            <h1>Register</h1>
+            <h1>About</h1>
             <Footer/>
         </div>
     );
 }
 
-export default Register;
+export default About;

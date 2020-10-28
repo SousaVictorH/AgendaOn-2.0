@@ -8,7 +8,7 @@ class Footer extends Component{
             <FooterContainer>
                 <div className="copy-right">
                     <div>
-                    &copy;{new Date().getFullYear()} THICC MEMES INC | All right reserved | Terms of service | Privacity
+                    &copy;{new Date().getFullYear()} AgendaOn INC | All right reserved | Terms of service | Privacity
                     </div>
                 </div>
             </FooterContainer>
