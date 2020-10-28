@@ -6,13 +6,16 @@ import Footer from "../Footer";
 import styled from "styled-components";
 
 function Home(){
+
+    const title = "<ON/>";
+
     return(
         <div>
             <Navbar/>
-            <HomeContainer className="main">
+            <HomeComponent className="main">
                 <h1>
                     <span>Agenda</span>
-                    <span>ON</span>
+                    <span>{title}</span>
                     <span>Corporation</span>
                 </h1>
 
@@ -20,7 +23,7 @@ function Home(){
                     AgendaOn uses the best technologies
                     to give you the best experience.
                 </h2>
-            </HomeContainer>
+            </HomeComponent>
             <Footer/>
         </div>
     );
@@ -28,8 +31,8 @@ function Home(){
 
 export default Home;
 
-const HomeContainer = styled.main`
-    max-width: 104.8rem;
+const HomeComponent = styled.main`
+    width: 100%;
     padding: 3.5rem 2.4rem;
 
     display: flex;
@@ -50,12 +53,11 @@ const HomeContainer = styled.main`
 
         font-size: 5.2rem;
         line-height: 100%;
-        letter-spacing: -0.24rem;
+        letter-spacing: 0.01rem;
 
         color: #fff;
 
         span{
-            padding: 0 0.67rem;
             filter: brightness(0) invert(1);
 
             background-clip: text;
@@ -66,15 +68,18 @@ const HomeContainer = styled.main`
         }
 
         span:nth-child(1){
+            padding: 0.4rem 0.8rem;
             background-image: linear-gradient(90deg, #007cf0, #00dfd8);
         }
 
         span:nth-child(2){
+            padding: 0 0.8rem;
             background-image: linear-gradient(90deg, #7928ca, #ff0080);
             animation-delay: 3.33s;
         }
 
         span:nth-child(3){
+            padding: 0.3rem 0.8rem;
             background-image: linear-gradient(90deg, #ff4d4d, #f9cb28);
             animation-delay: 6.66s;
         }
