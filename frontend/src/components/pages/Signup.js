@@ -5,7 +5,7 @@ import Footer from "../layouts/Footer";
 
 import FormComponent from "../FormComponent";
 
-import {FaPhone, FaKey, FaEnvelopeOpen, FaUser} from "react-icons/fa";
+import {FaPhone, FaKey, FaEnvelope, FaUser} from "react-icons/fa";
 
 function Signup(){
 
@@ -66,7 +66,7 @@ function Signup(){
                         </div>
 
                         <div className="group">
-                            <FaEnvelopeOpen className="icon" color="#256ce1"/>
+                            <FaEnvelope className="icon" color="#256ce1"/>
                             <input type="email" placeholder="Email"
                             value={email} onChange={e => setEmail(e.target.value)}/>
                         </div>

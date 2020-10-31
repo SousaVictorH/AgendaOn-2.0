@@ -26,6 +26,26 @@ color: #000000;
     margin-bottom: 18px;
 }
 
+.group input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 7px;
+    padding-left: 22px;
+}
+
+textarea{
+    width: 100%;
+    height: 160px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 7px;
+    padding-left: 22px;
+}
+
 .group{
     position: relative;
 }
@@ -36,14 +56,10 @@ color: #000000;
     top: 8px;
 }
 
-.group input{
-    width: 100%;
-    height: 30px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: 1px solid #000000;
-    padding: 7px;
-    padding-left: 22px;
+.group .ta-icon{
+    position: absolute;
+    left: 5px;
+    top: 11px;
 }
 
 .container .footer{
