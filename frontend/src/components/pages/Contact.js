@@ -30,7 +30,7 @@ function Contact(){
                     <h1>{title}</h1>
                 </div>
                 <div className="container">
-                    <h1>Fale Conosco</h1>
+                    <h1>Contact Us</h1>
                     <form onSubmit={handleSubmit}>
 
                         <div className="group">
