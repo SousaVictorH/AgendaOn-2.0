@@ -15,16 +15,24 @@ function Signup(){
     const [password, setPassword] = useState("");
     const [passwordAux, setPasswordAux] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
 
     function handleSubmit(e){
 
         e.preventDefault();
 
+        if(password !== passwordAux){
+            alert('Confira seus dados!');
+            return;
+        }
+
         const data ={
             username,
             password,
+            email,
+            phone
         }
-        console.log("OK");
+
         console.log(data);
     }
 
@@ -65,7 +73,8 @@ function Signup(){
 
                         <div className="group">
                             <FaPhone className="icon" color="#256ce1"/>
-                            <input type="Phone" placeholder="(xx) xxxx-xxxx"/>
+                            <input type="Phone" placeholder="(xx) xxxx-xxxx"
+                            value={phone} onChange={e => setPhone(e.target.value)}/>
                         </div>
 
                         <div className="footer">

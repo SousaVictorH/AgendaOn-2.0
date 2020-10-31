@@ -11,7 +11,7 @@ function Signin(){
 
     const title = "<AgendaON/>";
 
-    const[username, setUsername] = useState("");
+    const[userID, setUserID] = useState("");
     const[password, setPassword] = useState("");
 
     function handleSubmit(e){
@@ -19,10 +19,10 @@ function Signin(){
         e.preventDefault();
 
         const data ={
-            username,
+            userID,
             password,
         }
-        console.log("OK");
+
         console.log(data);
     }
 
@@ -39,8 +39,8 @@ function Signin(){
 
                         <div className="group">
                             <FaUser className="icon" color="#256ce1"/>
-                            <input type="text" placeholder="Username"
-                            value={username} onChange={e => setUsername(e.target.value)}/>
+                            <input type="text" placeholder="UserID"
+                            value={userID} onChange={e => setUserID(e.target.value)}/>
                         </div>
 
                         <div className="group">
