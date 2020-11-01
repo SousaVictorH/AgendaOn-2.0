@@ -1,17 +1,13 @@
 const express = require('express');
 
+const userController = require('./controllers/userController');
+const sessionController = require('./controllers/sessionController');
+
 const routes = express.Router();
 
-routes.post('/users', (req,res) => {
+routes.get('/users', userController.list);
+routes.post('/users', userController.create);
 
-    const {name, password, email, phone} = req.body;
-
-    console.log(req.body);
-
-    res.json({
-        
-    })
-
-})
+routes.post('/sessions', sessionController.create);
 
 module.exports = routes;
