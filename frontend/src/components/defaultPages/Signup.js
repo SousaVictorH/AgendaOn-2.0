@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import Navbar from "../layouts/Navbar";
+import Navbar from "../layouts/defaultNavbar";
 import Footer from "../layouts/Footer";
 
 import FormComponent from "../FormComponent";
@@ -9,7 +9,7 @@ import {FaPhone, FaKey, FaEnvelope, FaUser} from "react-icons/fa";
 
 function Signup(){
 
-    const title = "<AgendaON/>";
+    const title = "<AgendaOn/>"
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

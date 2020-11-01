@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import Navbar from "../layouts/Navbar";
+import Navbar from "../layouts/defaultNavbar";
 import Footer from "../layouts/Footer";
 
 import FormComponent from "../FormComponent";
@@ -9,7 +9,7 @@ import {FaUser, FaKey} from "react-icons/fa";
 
 function Signin(){
 
-    const title = "<AgendaON/>";
+    const title = "<AgendaOn/>"
 
     const[userID, setUserID] = useState("");
     const[password, setPassword] = useState("");

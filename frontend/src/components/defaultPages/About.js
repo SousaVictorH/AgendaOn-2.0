@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import Navbar from "../layouts/Navbar";
+import Navbar from "../layouts/defaultNavbar";
 import Footer from "../layouts/Footer";
 
 function About(){
@@ -16,16 +16,22 @@ function About(){
                 <h1>{title}</h1>
 
                 <section>
-                    <div className="title">
-                        <h2>Here you can:</h2>
-                    </div>
+                    
+                    
+                    <h2>AgendaOn</h2>   
+                    <p>AgendaOn foi criada para ser uma aplicação offline
+                        em que o usuário pode se cadastrar, cadastrar matérias,
+                        notas e lembretes relativas a uma determinada matéria,
+                        entre outras funcionalidades.
+                    </p>
 
+                    <h2>Como usar?</h2>
                     <ol>
-                        <li>Register yourself!</li>
-                        <li>Create subjects</li>
-                        <li>Register your notes</li>
-                        <li>Add anotations</li>
+                        <li>Cadastre-se</li>
+                        <li>Cadastre suas matérias</li>
+                        <li>Cadastre suas notas e anotações</li>
                     </ol>
+
                 </section>
             </AboutComponent>
             <Footer/>
@@ -53,26 +59,27 @@ const AboutComponent = styled.main`
     }
 
     section{
-        width: 50%;
+        width: 55%;
         margin-top: 25px;
     }
 
-    section .title{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 12px;
-    }
-
-    section .title h2{
+    section h2{
         margin-left: auto;
         margin-right: auto;
         font-size: 35px;
         margin-bottom: 25px;
     }
 
-    section ol li{
+    section p{
         font-size: 20px;
-        margin-bottom: 18px;
+        margin-top: 8px;
+        margin-bottom: 40px;
+    }
+
+    section ol{
+        font-size: 20px;
+        margin-left: 22.5px;
+        margin-top: 8px;
+        margin-bottom: 40px;
     }
 `;

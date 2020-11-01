@@ -1,12 +1,17 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Home from "./components/pages/Home";
-import Sigup from "./components/pages/Signup";
-import NotFound from "./components/pages/NotFound";
-import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
-import Signin from "./components/pages/Signin";
+import Home from "./components/defaultPages/Home";
+import Sigup from "./components/defaultPages/Signup";
+import NotFound from "./components/defaultPages/NotFound";
+import About from "./components/defaultPages/About";
+import Contact from "./components/defaultPages/Contact";
+import Signin from "./components/defaultPages/Signin";
+
+import Subjects from "./components/pages/Subjects";
+import AddSubject from "./components/pages/AddSubject";
+import Anotations from "./components/pages/Anotations";
+import AddAnotations from "./components/pages/Anotations";
 
 function Routes(){
 
@@ -18,6 +23,12 @@ function Routes(){
                 <Route path="/about" component={About}/>
                 <Route path="/contact-us" component={Contact}/>
                 <Route path="/sign-in" component={Signin}/>
+
+                <Route path="/home" component={Subjects}/>
+                <Route path="/add-subject" component={AddSubject}/>
+                <Route path="/anotations" component={Anotations}/>
+                <Route path="/add-anotations" component={AddAnotations}/>
+
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

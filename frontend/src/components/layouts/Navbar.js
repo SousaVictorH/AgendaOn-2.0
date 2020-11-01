@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 
 import styled from "styled-components";
-import {NavLink as Link} from "react-router-dom";
 import {FaCode} from "react-icons/fa";
+import {Nav, NavLink, NavMenu} from "./defaultNavbar";
 
 class Navbar extends Component{
+
     render(){
+
+        function handleLogOut(){
+            console.log("LogOut");
+        }
+
         return(
             <Nav>
                 <NavLink to="/">
@@ -13,22 +19,25 @@ class Navbar extends Component{
                 </NavLink>
 
                 <NavMenu>
-                    <NavLink to="/about" activeStyle>
-                        About
+                    <NavLink to="/home" activeStyle>
+                        Subjects
                     </NavLink>
-                    <NavLink to="/contact-us" activeStyle>
-                        Contact
+                    <NavLink to="/add-subject" activeStyle>
+                        Add Subject
                     </NavLink>
-                    <NavLink to="/sign-up" activeStyle>
-                        Sign Up
+                    <NavLink to="/anotations" activeStyle>
+                        Anotations
+                    </NavLink>
+                    <NavLink to="/add-anotations" activeStyle>
+                        Add Anotations
                     </NavLink>
                 </NavMenu>
 
-                <NavBtn>
-                    <NavBtnLink to="/sign-in">
-                        Sig in
-                    </NavBtnLink>
-                </NavBtn>
+                <NavBtnContainer>
+                    <NavBtn onClick={handleLogOut}>
+                        Log Out
+                    </NavBtn>
+                </NavBtnContainer>
             </Nav>
         );
     }
@@ -36,54 +45,13 @@ class Navbar extends Component{
 
 export default Navbar;
 
-const Nav = styled.nav`
-    background: #000;
-    height: 7.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem calc((100vw-1000px)/2);
-    z-index: 10;
-
-    font-size: 20px;
-`;
-
-const NavLink = styled(Link)`
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-
-    &.active{
-        color: #0A5FFF;
-    }
-
-    &:hover{
-        color: #0A5FFF;
-    }
-`;
-
-const NavMenu = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: -24px;
-
-    @media screen and (max-width: 768px){
-        display: none;
-    }
-`;
-
-const NavBtn = styled.nav`
+const NavBtnContainer = styled.nav`
     display: flex;
     align-items: center;
     margin-right: 24px;
 `;
 
-const NavBtnLink = styled(Link)`
+const NavBtn = styled.button`
     border-radius: 4px;
     background-color: #256ce1;
     padding: 10px 22px;
