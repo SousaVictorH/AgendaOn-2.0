@@ -55,8 +55,6 @@ const HomeComponent = styled.main`
         line-height: 100%;
         letter-spacing: 0.01rem;
 
-        color: #fff;
-
         span{
             filter: brightness(0) invert(1);
 

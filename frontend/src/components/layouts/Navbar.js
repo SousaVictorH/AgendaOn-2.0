@@ -14,9 +14,9 @@ class Navbar extends Component{
 
         return(
             <Nav>
-                <NavLink to="/">
+                <NavImg>
                     <FaCode size={54}/>
-                </NavLink>
+                </NavImg>
 
                 <NavMenu>
                     <NavLink to="/home" activeStyle>
@@ -44,6 +44,16 @@ class Navbar extends Component{
 }
 
 export default Navbar;
+
+const NavImg = styled.div`
+    color: #0A5FFF;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    transition: 0.2s ease-in-out;
+`;
 
 const NavBtnContainer = styled.nav`
     display: flex;

@@ -11,7 +11,7 @@ import Signin from "./components/defaultPages/Signin";
 import Subjects from "./components/pages/Subjects";
 import AddSubject from "./components/pages/AddSubject";
 import Anotations from "./components/pages/Anotations";
-import AddAnotations from "./components/pages/Anotations";
+import AddAnotations from "./components/pages/AddAnotation";
 
 function Routes(){
 

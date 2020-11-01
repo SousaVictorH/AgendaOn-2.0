@@ -14,6 +14,7 @@ function Contact(){
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
 
 
     function handleSubmit(e){
@@ -53,7 +54,8 @@ function Contact(){
 
                         <div className="group">
                             <FaBook className="ta-icon" color="#256ce1"/>
-                            <textarea cols="25" rows="10" placeholder="Message"/>
+                            <textarea cols="25" rows="10" placeholder="Message"
+                            value={message} onChange={e => setMessage(e.target.value)}/>
                         </div>
 
                         <div className="footer">
