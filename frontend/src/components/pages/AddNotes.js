@@ -5,15 +5,14 @@ import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
-import {FaPen, FaBook, FaCalendar} from "react-icons/fa";
+import {FaPen, FaBookOpen} from "react-icons/fa";
 
-function AddAnotations(){
+function AddNotes(){
 
     const title = "<AgendaOn/>"
 
-    const [anotationtitle, setAnotationTitle] = useState('');
-    const [date, setDate] = useState('');
-    const [description, setDescription] = useState('');
+    const [note, setNote] = useState('');
+    const [subject, setSubject] = useState('');
 
 
     function handleSubmit(e){
@@ -30,30 +29,24 @@ function AddAnotations(){
                     <h1>{title}</h1>
                 </div>
                 <div className="container">
-                    <h1>Create anotation</h1>
+                    <h1>Add note</h1>
                     <form onSubmit={handleSubmit}>
 
                         <div className="group">
                             <FaPen className="icon" color="#256ce1"/>
-                            <input type="text" placeholder="Title"
-                            value={anotationtitle} onChange={e => setAnotationTitle(e.target.value)}/>
+                            <input type="text" placeholder="Nota"
+                            value={note} onChange={e => setNote(e.target.value)}/>
                         </div>
 
                         <div className="group">
-                            <FaCalendar className="icon" color="#256ce1"/>
-                            <input type="date"
-                            value={date} onChange={e => setDate(e.target.value)}/>
-                        </div>
-
-                        <div className="group">
-                            <FaBook className="ta-icon" color="#256ce1"/>
-                            <textarea cols="25" rows="10" placeholder="Message"
-                            value={description} onChange={e => setDescription(e.target.value)}/>
+                            <FaBookOpen className="icon" color="#256ce1"/>
+                            <input type="text" placeholder="Subject"
+                            value={subject} onChange={e => setSubject(e.target.value)}/>
                         </div>
 
                         <div className="footer">
                             <button className="button" type="submit">
-                                Create
+                                Add
                             </button>
                         </div>
                     </form>
@@ -64,4 +57,4 @@ function AddAnotations(){
     );
 }
 
-export default AddAnotations;
+export default AddNotes;

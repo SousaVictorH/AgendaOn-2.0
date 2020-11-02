@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import FormComponent from "../FormComponent"
 
 import Navbar from "../layouts/defaultNavbar";
-import Footer from "../layouts/Footer";
+import Footer from "../layouts/defaultFootter";
 
 import {FaUser, FaEnvelope, FaPhone, FaBook} from "react-icons/fa";
 

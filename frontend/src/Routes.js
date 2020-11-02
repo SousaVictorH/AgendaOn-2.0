@@ -12,6 +12,7 @@ import Subjects from "./components/pages/Subjects";
 import AddSubject from "./components/pages/AddSubject";
 import Anotations from "./components/pages/Anotations";
 import AddAnotations from "./components/pages/AddAnotation";
+import AddNotes from "./components/pages/AddNotes";
 
 function Routes(){
 
@@ -28,6 +29,7 @@ function Routes(){
                 <Route path="/add-subject" component={AddSubject}/>
                 <Route path="/anotations" component={Anotations}/>
                 <Route path="/add-anotations" component={AddAnotations}/>
+                <Route path="/add-notes" component={AddNotes}/>
 
                 <Route component={NotFound}/>
             </Switch>

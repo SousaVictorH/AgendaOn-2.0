@@ -1,46 +1,44 @@
-import React, { Component } from "react";
+import React from "react";
 
 import styled from "styled-components";
 import {FaCode} from "react-icons/fa";
+import {useHistory} from "react-router-dom";
 import {Nav, NavLink, NavMenu} from "./defaultNavbar";
 
-class Navbar extends Component{
+function Navbar(){
 
-    render(){
+    const history = useHistory();
 
-        function handleLogOut(){
-            console.log("LogOut");
-        }
-
-        return(
-            <Nav>
-                <NavImg>
-                    <FaCode size={54}/>
-                </NavImg>
-
-                <NavMenu>
-                    <NavLink to="/home" activeStyle>
-                        Subjects
-                    </NavLink>
-                    <NavLink to="/add-subject" activeStyle>
-                        Add Subject
-                    </NavLink>
-                    <NavLink to="/anotations" activeStyle>
-                        Anotations
-                    </NavLink>
-                    <NavLink to="/add-anotations" activeStyle>
-                        Add Anotations
-                    </NavLink>
-                </NavMenu>
-
-                <NavBtnContainer>
-                    <NavBtn onClick={handleLogOut}>
-                        Log Out
-                    </NavBtn>
-                </NavBtnContainer>
-            </Nav>
-        );
+    function handleLogOut(){
+        localStorage.clear();
+        history.push('/');
     }
+
+    return(
+        <Nav>
+            <NavImg>
+                <FaCode size={54}/>
+            </NavImg>
+
+            <NavMenu>
+                <NavLink to="/home" activeStyle>
+                    Subjects
+                </NavLink>
+                <NavLink to="/add-subject" activeStyle>
+                    Add Subject
+                </NavLink>
+                <NavLink to="/add-notes" activeStyle>
+                    Add Notes
+                </NavLink>
+            </NavMenu>
+
+            <NavBtnContainer>
+                <NavBtn onClick={handleLogOut}>
+                    Log Out
+                </NavBtn>
+            </NavBtnContainer>
+        </Nav>
+    );
 }
 
 export default Navbar;

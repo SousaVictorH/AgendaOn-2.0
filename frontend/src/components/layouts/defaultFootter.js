@@ -27,6 +27,8 @@ const FooterContainer = styled.footer`
     justify-content: center;
     font-size: 15px;
     color: #fff;
+    position: absolute;
+    bottom: 0;
     width: 100%;
 
     .copy-right{

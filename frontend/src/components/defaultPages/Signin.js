@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import Navbar from "../layouts/defaultNavbar";
-import Footer from "../layouts/Footer";
+import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
