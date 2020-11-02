@@ -19,8 +19,7 @@ function Home(){
                     <span>Corporation</span>
                 </h1>
 
-                <h2>
-                    AgendaOn uses the best technologies
+                <h2>AgendaOn uses the best technologies
                     to give you the best experience.
                 </h2>
             </HomeComponent>
