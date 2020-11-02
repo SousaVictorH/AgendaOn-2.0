@@ -2,16 +2,18 @@ import React from "react";
 
 import styled from "styled-components";
 
+import {useHistory} from "react-router-dom";
+
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
-import {FaTrashAlt} from "react-icons/fa";
-
 function Subjects(){
 
-    async function handleDelete(id){
+    const history = useHistory();
 
-        console.log(id);
+    function handleClick(id){
+
+        history.push(`/anotations/${id}`);
 
     }
 
@@ -22,7 +24,7 @@ function Subjects(){
                 <h1>Hello, username.</h1>
 
                 <ul>
-                    <li>
+                    <li onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 
@@ -33,13 +35,9 @@ function Subjects(){
                         <p>Nota1: 10.0</p>
                         <p>Nota2: 5.0</p>
                         <p>Nota3: 8.0</p>
-
-                        <button onClick={() => handleDelete(1 /*anotation.id*/)} type="button">
-                            <FaTrashAlt color="#256ce1" size={20}/>
-                        </button>
                     </li>
 
-                    <li>
+                    <li onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 
@@ -50,13 +48,9 @@ function Subjects(){
                         <p>Nota1: 10.0</p>
                         <p>Nota2: 5.0</p>
                         <p>Nota3: 8.0</p>
-
-                        <button onClick={() => handleDelete(1 /*anotation.id*/)} type="button">
-                            <FaTrashAlt color="#256ce1" size={20}/>
-                        </button>
                     </li>
 
-                    <li>
+                    <li onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 
@@ -67,10 +61,6 @@ function Subjects(){
                         <p>Nota1: 10.0</p>
                         <p>Nota2: 5.0</p>
                         <p>Nota3: 8.0</p>
-
-                        <button onClick={() => handleDelete(1 /*anotation.id*/)} type="button">
-                            <FaTrashAlt color="#256ce1" size={20}/>
-                        </button>
                     </li>
                 </ul>
             </SubjectComponent>
@@ -109,18 +99,7 @@ ul li{
     padding: 20px;
     border-radius: 8px;
     position: relative;
-}
-
-ul li button{
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    border: 0;
-    transition: .5s;
-}
-
-ul li button:hover{
-    opacity: 0.5;
+    cursor: pointer;
 }
 
 ul li strong{
