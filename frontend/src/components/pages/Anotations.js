@@ -6,7 +6,9 @@ import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
 import {useHistory} from "react-router-dom";
+
 import api from "../../services/api";
+import verificaSubject from "../../services/subjectVerification";
 
 import {FaPlus, FaTrashAlt} from "react-icons/fa";
 
@@ -29,12 +31,12 @@ function Anotations(){
         
         try {
 
-            const data = {
-                id,
-                subject_id
-            }
-
-            await api.post('/delete-anotation', data);
+            await api.delete('/anotations', {
+                headers: {
+                    Authorization: subject_id,
+                    Id: id,
+                }
+            });
 
             setAnotations(anotations.filter(anotation => anotation.id !== id));
             
@@ -44,7 +46,11 @@ function Anotations(){
 
     }
 
-    useEffect(() => {
+    useEffect(async() => {
+
+        if(! await verificaSubject){
+            history.push('/sign-in');
+        }
 
         api.get("/anotations", {
             headers: {

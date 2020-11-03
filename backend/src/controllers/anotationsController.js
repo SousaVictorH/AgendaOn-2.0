@@ -34,7 +34,8 @@ module.exports = {
 
     async delete(req,res){
 
-        const {id, subject_id} = req.body;
+        const id = req.headers.id; 
+        const subject_id = req.headers.authorization; 
 
         await connection('anotations')
         .where('subject_id', subject_id)

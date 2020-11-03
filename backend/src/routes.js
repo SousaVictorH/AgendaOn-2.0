@@ -20,6 +20,6 @@ routes.post('/add-note', subjectsController.addNote);
 
 routes.post('/anotations', anotationsController.create);
 routes.get('/anotations', anotationsController.list);
-routes.post('/delete-anotation', anotationsController.delete);
+routes.delete('/anotations', anotationsController.delete);
 
 module.exports = routes;
