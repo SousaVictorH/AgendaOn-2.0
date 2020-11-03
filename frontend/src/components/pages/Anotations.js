@@ -5,13 +5,17 @@ import ListComponent from "../ListComponent";
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
+import {useHistory} from "react-router-dom";
+
 import {FaPlus} from "react-icons/fa";
 
 function Anotations(){
 
+    const history = useHistory();
+
     function handleClick(){
 
-        // to="/add-anotations"
+        history.push('/add-anotations');
 
     }
 

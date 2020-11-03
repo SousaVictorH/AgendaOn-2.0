@@ -30,6 +30,13 @@ h1{
 
     background-color: #256ce1;
     border-radius: 5px;
+    border: none;
+
+    transition: .5s;
+}
+
+.icon:hover{
+    opacity: .7;
 }
 
 ul{
@@ -47,6 +54,9 @@ ul li{
     padding: 20px;
     border-radius: 8px;
     position: relative;
+}
+
+ul .cursor{
     cursor: pointer;
 }
 

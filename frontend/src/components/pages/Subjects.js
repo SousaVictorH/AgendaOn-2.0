@@ -24,7 +24,7 @@ function Subjects(){
                 <h1>Hello, username.</h1>
 
                 <ul>
-                    <li onClick={() => handleClick(1  /* subjectID */)}>
+                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 
@@ -37,7 +37,7 @@ function Subjects(){
                         <p>Nota3: 8.0</p>
                     </li>
 
-                    <li onClick={() => handleClick(1  /* subjectID */)}>
+                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 
@@ -50,7 +50,7 @@ function Subjects(){
                         <p>Nota3: 8.0</p>
                     </li>
 
-                    <li onClick={() => handleClick(1  /* subjectID */)}>
+                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
                         <strong>Name:</strong>
                         <p>Subject1</p>
 

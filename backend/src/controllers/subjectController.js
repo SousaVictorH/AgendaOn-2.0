@@ -1,19 +1,5 @@
 const connection = require('../database/connection');
-
-
-existSubject = async (subjectName) => {
-
-    const aux = await connection('subjects')
-        .where('name', subjectName).first();
-
-    console.log(aux);
-
-    if (aux) {
-        return true;
-    }
-
-    return false;
-}
+const util = require('./util');
 
 module.exports = {
 
@@ -23,7 +9,7 @@ module.exports = {
 
         const user_id = req.headers.authorization;
 
-        if (await existSubject(name)) {
+        if (await util.existSubject(name)) {
             return res.status(400).json('ja existe!');
         }
 
@@ -61,7 +47,7 @@ module.exports = {
 
         const { subject, note } = req.body;
 
-        if (! await existSubject(subject)) {
+        if (! await util.existSubject(subject)) {
             return res.status(400).json('Não existe!');
         }
 
@@ -94,7 +80,7 @@ module.exports = {
             return res.status(400).json('Limite atingido!');
         }
 
-        return res.status(200).json("OK");
+        return res.status(204).send();
 
     },
 
