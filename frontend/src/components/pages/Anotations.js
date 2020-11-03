@@ -8,7 +8,6 @@ import Footer from "../layouts/Footer";
 import {useHistory} from "react-router-dom";
 
 import api from "../../services/api";
-import verificaSubject from "../../services/subjectVerification";
 
 import {FaPlus, FaTrashAlt} from "react-icons/fa";
 
@@ -46,11 +45,7 @@ function Anotations(){
 
     }
 
-    useEffect(async() => {
-
-        if(! await verificaSubject){
-            history.push('/sign-in');
-        }
+    useEffect(() => {
 
         api.get("/anotations", {
             headers: {

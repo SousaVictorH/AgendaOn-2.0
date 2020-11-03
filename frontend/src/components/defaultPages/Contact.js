@@ -5,9 +5,15 @@ import FormComponent from "../FormComponent"
 import Navbar from "../layouts/defaultNavbar";
 import Footer from "../layouts/defaultFootter";
 
+import api from "../../services/api";
+
+import {useHistory} from "react-router-dom";
+
 import {FaUser, FaEnvelope, FaPhone, FaBook} from "react-icons/fa";
 
 function Contact(){
+
+    const history = useHistory();
 
     const title = "<AgendaOn/>"
 
@@ -17,10 +23,28 @@ function Contact(){
     const [message, setMessage] = useState('');
 
 
-    function handleSubmit(e){
-        
+    async function handleSubmit(e){
+
         e.preventDefault();
 
+        let data ={
+            username,
+            email,
+            phone,
+            message
+        }
+
+        try {
+
+            await api.post('/messages', data);
+
+            history.push('/');
+            
+        } catch (error) {
+
+            alert('Erro no envio do formulário, tente novamente.');
+            
+        }
     }
 
     return(

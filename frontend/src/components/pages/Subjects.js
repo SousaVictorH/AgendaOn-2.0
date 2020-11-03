@@ -46,7 +46,7 @@ function Subjects() {
                         }
 
                         return(
-                            <li className="cursor" onClick={() => handleClick(subject.name, subject.id)}>
+                            <li key={subject.id} className="cursor" onClick={() => handleClick(subject.name, subject.id)}>
                                 <strong>Name:</strong>
                                 <p>{subject.name}</p>
     
