@@ -17,7 +17,7 @@ module.exports = {
         const nota2 = null;
         const nota3 = null;
 
-        const result = await connection('subjects').insert({
+        await connection('subjects').insert({
             name,
             description,
             nota1,
@@ -26,7 +26,7 @@ module.exports = {
             user_id
         })
 
-        return res.status(200).json("ok");
+        return res.status(200).send();
     },
 
     async list(req, res) {

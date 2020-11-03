@@ -22,32 +22,74 @@ routes.post('/users', celebrate({
     })
 }), userController.create);
 
-routes.post('/get-user', userController.getName);
+routes.post('/get-user', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        userId: Joi.string().required().length(8),
+    })
+}), userController.getName);
 
 // SESIONS
 
-routes.post('/sessions', sessionController.create);
+routes.post('/sessions', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        userId: Joi.string().required().length(8),
+        password: Joi.string().required(),
+    })
+}), sessionController.create);
 
 // SUBJECTS
 
-routes.post('/subjects', subjectsController.create);
+routes.post('/subjects', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        name: Joi.string().required(),
+        description: Joi.string().required(),
+    }),
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required().length(8)
+    }).unknown()
+}), subjectsController.create);
 
 routes.get('/subjects', subjectsController.list);
 
-// NOTE
-
-routes.post('/add-note', subjectsController.addNote);
+routes.post('/add-note', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        subject: Joi.string().required(),
+        note: Joi.number().required(),
+    }),
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required().length(8)
+    }).unknown()
+}), subjectsController.addNote);
 
 // ANOTATIONS
 
-routes.post('/anotations', anotationsController.create);
+routes.post('/anotations', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        subject_id: Joi.number().required(),
+        title: Joi.string().required(),
+        description: Joi.string().required(),
+        date: Joi.string().required().length(10),
+    })
+}), anotationsController.create);
 
 routes.get('/anotations', anotationsController.list);
 
-routes.delete('/anotations', anotationsController.delete);
+routes.delete('/anotations', celebrate({
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required(),
+        id: Joi.number().required(),
+    }).unknown()
+}), anotationsController.delete);
 
 // MESSAGES
 
-routes.post('/messages', messageController.create);
+routes.post('/messages', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        username: Joi.string().required(),
+        email: Joi.string().required().email(),
+        phone: Joi.string().required().min(8).max(12),
+        message: Joi.string().required(),
+    })
+}), messageController.create);
 
 module.exports = routes;
