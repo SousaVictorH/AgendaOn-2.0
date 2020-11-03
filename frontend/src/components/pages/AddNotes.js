@@ -5,9 +5,15 @@ import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
+import api from "../../services/api";
+import {useHistory} from "react-router-dom";
+
 import {FaPen, FaBookOpen} from "react-icons/fa";
 
 function AddNotes(){
+
+    const history = useHistory();
+    const userId = localStorage.getItem('userId');
 
     const title = "<AgendaOn/>"
 
@@ -15,9 +21,30 @@ function AddNotes(){
     const [subject, setSubject] = useState('');
 
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         
         e.preventDefault();
+
+        const data = {
+            subject,
+            note
+        }
+
+        try {
+
+            await api.post('/add-note', data, {
+                headers: {
+                    Authorization: userId,
+                }
+            })
+
+            history.push('/home');
+            
+        } catch (error) {
+            
+            alert('Erro tente novamente');
+
+        }
 
     }
 
@@ -33,15 +60,15 @@ function AddNotes(){
                     <form onSubmit={handleSubmit}>
 
                         <div className="group">
-                            <FaPen className="icon" color="#256ce1"/>
-                            <input type="text" placeholder="Nota"
-                            value={note} onChange={e => setNote(e.target.value)}/>
-                        </div>
-
-                        <div className="group">
                             <FaBookOpen className="icon" color="#256ce1"/>
                             <input type="text" placeholder="Subject"
                             value={subject} onChange={e => setSubject(e.target.value)}/>
+                        </div>
+
+                        <div className="group">
+                            <FaPen className="icon" color="#256ce1"/>
+                            <input type="text" placeholder="Nota"
+                            value={note} onChange={e => setNote(e.target.value)}/>
                         </div>
 
                         <div className="footer">

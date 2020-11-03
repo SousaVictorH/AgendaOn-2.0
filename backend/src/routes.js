@@ -10,6 +10,8 @@ const routes = express.Router();
 routes.get('/users', userController.list);
 routes.post('/users', userController.create);
 
+routes.post('/get-user', userController.getName);
+
 routes.post('/sessions', sessionController.create);
 
 routes.post('/subjects', subjectsController.create);
@@ -18,6 +20,6 @@ routes.post('/add-note', subjectsController.addNote);
 
 routes.post('/anotations', anotationsController.create);
 routes.get('/anotations', anotationsController.list);
-routes.delete('/anotations', anotationsController.delete);
+routes.post('/delete-anotation', anotationsController.delete);
 
 module.exports = routes;

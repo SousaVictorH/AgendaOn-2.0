@@ -32,6 +32,8 @@ h1{
     border-radius: 5px;
     border: none;
 
+    cursor: pointer;
+
     transition: .5s;
 }
 
@@ -74,6 +76,18 @@ ul li p{
 
 ul li p + strong{
     margin-top: 32px;
+}
+
+ul li .icon{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 25px;
+    height: 25px;
+    padding: 6px;
+
+    transition: .5s;
 }
 `;
 

@@ -5,20 +5,44 @@ import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
+import api from "../../services/api";
+import {useHistory} from "react-router-dom";
+
 import {FaPen, FaBook, FaCalendar} from "react-icons/fa";
 
 function AddAnotations(){
 
-    const title = "<AgendaOn/>"
+    const history = useHistory();
 
-    const [anotationtitle, setAnotationTitle] = useState('');
+    const subject_id = localStorage.getItem('subjectId');
+
+    const title2 = "<AgendaOn/>"
+
+    const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
 
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         
         e.preventDefault();
+
+        try {
+            
+            const data = {
+                subject_id,
+                title,
+                description,
+                date
+            }
+
+            await api.post('/anotations', data);
+
+            history.push('/anotations');
+
+        } catch (error) {
+            alert('Erro ao cadastrar');
+        }
 
     }
 
@@ -27,7 +51,7 @@ function AddAnotations(){
             <Navbar/>
             <FormComponent>
                 <div className="logo">
-                    <h1>{title}</h1>
+                    <h1>{title2}</h1>
                 </div>
                 <div className="container">
                     <h1>Create anotation</h1>
@@ -36,7 +60,7 @@ function AddAnotations(){
                         <div className="group">
                             <FaPen className="icon" color="#256ce1"/>
                             <input type="text" placeholder="Title"
-                            value={anotationtitle} onChange={e => setAnotationTitle(e.target.value)}/>
+                            value={title} onChange={e => setTitle(e.target.value)}/>
                         </div>
 
                         <div className="group">

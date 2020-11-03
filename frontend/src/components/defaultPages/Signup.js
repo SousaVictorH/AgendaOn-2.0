@@ -2,22 +2,27 @@ import React, {useState} from "react";
 
 import Navbar from "../layouts/defaultNavbar";
 import Footer from "../layouts/defaultFootter";
-
 import FormComponent from "../FormComponent";
+
+import {useHistory} from "react-router-dom";
+
+import api from "../../services/api";
 
 import {FaPhone, FaKey, FaEnvelope, FaUser} from "react-icons/fa";
 
 function Signup(){
 
+    const history = useHistory();
+
     const title = "<AgendaOn/>"
 
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordAux, setPasswordAux] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
 
         e.preventDefault();
 
@@ -27,13 +32,26 @@ function Signup(){
         }
 
         const data ={
-            username,
+            name,
             password,
             email,
             phone
         }
 
-        console.log(data);
+        try {
+            
+            const response = await api.post('users', data);
+
+            alert(`Seu ID de acesso: ${response.data.id}`);
+
+            history.push('/sign-in')
+
+        } catch (error) {
+            
+            alert('Erro no cadastro, tente novamente!');
+
+        }
+
     }
 
     return(
@@ -50,7 +68,7 @@ function Signup(){
                         <div className="group">
                             <FaUser className="icon" color="#256ce1"/>
                             <input type="text" placeholder="Username"
-                            value={username} onChange={e => setUsername(e.target.value)}/>
+                            value={name} onChange={e => setName(e.target.value)}/>
                         </div>
 
                         <div className="group">

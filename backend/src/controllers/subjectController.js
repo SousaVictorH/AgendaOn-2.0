@@ -26,8 +26,6 @@ module.exports = {
             user_id
         })
 
-        console.log(result[0]);
-
         return res.status(200).json("ok");
     },
 

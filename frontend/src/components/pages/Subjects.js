@@ -1,70 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import ListComponent from "../ListComponent";
 
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
+import api from "../../services/api";
 
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
-function Subjects(){
+function Subjects() {
+
+    const [subjects, setSubjects] = useState([]);
+
+    const userName = localStorage.getItem('userName');
+    const userId = localStorage.getItem('userId');
 
     const history = useHistory();
 
-    function handleClick(id){
+    useEffect(() => {
 
-        history.push(`/anotations/${id}`);
+        api.get('/subjects', {
+            headers: {
+                Authorization: userId,
+            }
+        }).then(response => {
+            setSubjects(response.data);
+        })
 
-    }
+    }, [userId]);
 
-    return(
+    return (
         <div>
-            <Navbar/>
+            <Navbar />
             <ListComponent>
-                <h1>Hello, username.</h1>
+                <h1>Hello, {userName}.</h1>
 
                 <ul>
-                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
-                        <strong>Name:</strong>
-                        <p>Subject1</p>
+                    {subjects.map(subject => {
 
-                        <strong>Description:</strong>
-                        <p>A quick description for subject1</p>
+                        function handleClick(name, id){
+                            localStorage.setItem('subjectName', name);
+                            localStorage.setItem('subjectId', id);
+                            history.push(`/anotations`);
+                        }
 
-                        <strong>Notas:</strong>
-                        <p>Nota1: 10.0</p>
-                        <p>Nota2: 5.0</p>
-                        <p>Nota3: 8.0</p>
-                    </li>
-
-                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
-                        <strong>Name:</strong>
-                        <p>Subject1</p>
-
-                        <strong>Description:</strong>
-                        <p>A quick description for subject1</p>
-
-                        <strong>Notas:</strong>
-                        <p>Nota1: 10.0</p>
-                        <p>Nota2: 5.0</p>
-                        <p>Nota3: 8.0</p>
-                    </li>
-
-                    <li className="cursor" onClick={() => handleClick(1  /* subjectID */)}>
-                        <strong>Name:</strong>
-                        <p>Subject1</p>
-
-                        <strong>Description:</strong>
-                        <p>A quick description for subject1</p>
-
-                        <strong>Notas:</strong>
-                        <p>Nota1: 10.0</p>
-                        <p>Nota2: 5.0</p>
-                        <p>Nota3: 8.0</p>
-                    </li>
+                        return(
+                            <li className="cursor" onClick={() => handleClick(subject.name, subject.id)}>
+                                <strong>Name:</strong>
+                                <p>{subject.name}</p>
+    
+                                <strong>Description:</strong>
+                                <p>{subject.description}</p>
+    
+                                <strong>Notas:</strong>
+                                <p>Nota1: {subject.nota1}</p>
+                                <p>Nota2: {subject.nota2}</p>
+                                <p>Nota3: {subject.nota3}</p>
+                            </li>
+                        )
+                    })}
                 </ul>
             </ListComponent>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

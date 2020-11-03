@@ -5,25 +5,54 @@ import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
+import api from "../../services/api";
+
+import {useHistory} from "react-router-dom";
+
 import {FaUser, FaKey} from "react-icons/fa";
 
 function Signin(){
 
+    const history = useHistory();
+
     const title = "<AgendaOn/>"
 
-    const[userID, setUserID] = useState("");
+    const[userId, setUserId] = useState("");
     const[password, setPassword] = useState("");
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
 
         e.preventDefault();
 
-        const data ={
-            userID,
+        let data ={
+            userId,
             password,
         }
 
-        console.log(data);
+        try {
+
+            await api.post('/sessions', data);
+
+            data = {
+                userId
+            }
+
+            const response = await api.post('/get-user', data)
+
+            const userName = response.data.name;
+
+            console.log(userName);
+
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('userId', userId);
+
+            history.push('/home');
+            
+        } catch (error) {
+
+            alert('Erro no login');
+            
+        }
     }
 
     return(
@@ -40,7 +69,7 @@ function Signin(){
                         <div className="group">
                             <FaUser className="icon" color="#256ce1"/>
                             <input type="text" placeholder="UserID"
-                            value={userID} onChange={e => setUserID(e.target.value)}/>
+                            value={userId} onChange={e => setUserId(e.target.value)}/>
                         </div>
 
                         <div className="group">

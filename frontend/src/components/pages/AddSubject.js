@@ -5,20 +5,45 @@ import Footer from "../layouts/defaultFootter";
 
 import FormComponent from "../FormComponent";
 
+import api from "../../services/api";
+
+import {useHistory} from "react-router-dom";
+
 import {FaPen, FaBook} from "react-icons/fa";
 
 function AddSubject(){
 
     const title = "<AgendaOn/>"
 
+    const history = useHistory();
+    const userId = localStorage.getItem('userId');
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         
         e.preventDefault();
 
+        const data = {
+            name,
+            description
+        }
+
+        try {
+
+            await api.post('/subjects', data, {
+                headers: {
+                    Authorization: userId,
+                }
+            })
+
+            history.push('/home');
+            
+        } catch (error) {
+            alert('Erro no cadastro de materia');
+        }
     }
 
     return(
