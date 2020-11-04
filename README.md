@@ -8,7 +8,33 @@ The main goal of this project is to improve my skills with Javascript, React, No
 ### :iphone: Here's a few snapshots of the app:
   
 <div>
-  Not privided yet
+  <h3>Project Home</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/home.gif" alt="Home">
+</div>
+
+<div>
+  <h3>Register yourself</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/register.png" alt="Register">
+</div>
+
+<div>
+  <h3>List your's subjects</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/subjectList.png" alt="SubjectList">
+</div>
+
+<div>
+  <h3>Register a subject</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/subjectRegister.png" alt="SubjectRegister">
+</div>
+
+<div>
+  <h3>Register an anotation for a especific subject</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/anotationCreate.png" alt="CreateAnotations">
+</div>
+
+<div>
+  <h3>List your subject's anotations</h3>
+  <img src="https://github.com/SousaVictorH/AgendaOn-2.0/blob/master/frontend/public/projectImages/anotationsList.png" alt="AnotationsList">
 </div>
 
 ###  :hammer: Made with
