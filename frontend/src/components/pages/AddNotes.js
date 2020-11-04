@@ -32,7 +32,7 @@ function AddNotes(){
 
         try {
 
-            await api.post('/add-note', data, {
+            await api.post('/note', data, {
                 headers: {
                     Authorization: userId,
                 }

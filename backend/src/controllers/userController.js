@@ -30,7 +30,7 @@ module.exports = {
 
     async getName(req,res){
 
-        const {userId} = req.body;
+        const userId = req.headers.authorization;
 
         const userName = await connection('users')
         .where('id', userId)

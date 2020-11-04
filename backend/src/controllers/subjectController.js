@@ -55,7 +55,6 @@ module.exports = {
             .where({ user_id, name: subject })
             .first();
 
-
         if (!resultado.nota1) {
 
             await connection('subjects')

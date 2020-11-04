@@ -22,11 +22,7 @@ routes.post('/users', celebrate({
     })
 }), userController.create);
 
-routes.post('/get-user', celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        userId: Joi.string().required().length(8),
-    })
-}), userController.getName);
+routes.get('/user', userController.getName);
 
 // SESIONS
 
@@ -51,10 +47,10 @@ routes.post('/subjects', celebrate({
 
 routes.get('/subjects', subjectsController.list);
 
-routes.post('/add-note', celebrate({
+routes.post('/note', celebrate({
     [Segments.BODY]: Joi.object().keys({
         subject: Joi.string().required(),
-        note: Joi.number().required(),
+        note: Joi.number().required().min(0).max(10),
     }),
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required().length(8)

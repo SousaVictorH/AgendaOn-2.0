@@ -33,11 +33,11 @@ function Signin(){
 
             await api.post('/sessions', data);
 
-            data = {
-                userId
-            }
-
-            const response = await api.post('/get-user', data)
+            const response = await api.get('/user', {
+                headers:{
+                    Authorization: userId,
+                }
+            })
 
             const userName = response.data.name;
 
