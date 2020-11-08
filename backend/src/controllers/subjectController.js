@@ -8,11 +8,7 @@ module.exports = {
         const { name, description } = req.body;
 
         const user_id = req.headers.authorization;
-
-        if (await util.existSubject(name)) {
-            return res.status(400).json('ja existe!');
-        }
-
+        
         const nota1 = null;
         const nota2 = null;
         const nota3 = null;
