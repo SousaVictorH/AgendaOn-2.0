@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const appStack = createStackNavigator();
 
 import Home from './pages/Home/index';
+import Register from './pages/Register/index';
 
 function Routes() {
   return (
@@ -13,6 +14,7 @@ function Routes() {
         <appStack.Navigator initialRouteName="Home" screenOptions={ { headerShown: false } }>
 
             <appStack.Screen name="Home" component={Home}/>
+            <appStack.Screen name="Register" component={Register}/>
 
         </appStack.Navigator>
         
