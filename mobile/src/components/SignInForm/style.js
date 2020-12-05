@@ -4,10 +4,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       marginTop: 30,
-      backgroundColor: '#fff',
-      borderWidth: 1,
-      borderColor: '#fff',
-      borderRadius: 10,
+      backgroundColor: '#000',
       alignItems: "center",
       justifyContent: "center",
       maxHeight: '38%',
@@ -19,7 +16,7 @@ const styles = StyleSheet.create({
       position: "absolute",
       top: 15,
       left: 15,
-      color: '#000',
+      color: '#fff',
       fontSize: 18,
     },
     input: {
@@ -56,7 +53,7 @@ const styles = StyleSheet.create({
       marginTop: 12,
     },
     secondaryButtonText: {
-      color: '#000',
+      color: '#fff',
       fontSize: 12,
     },
 });

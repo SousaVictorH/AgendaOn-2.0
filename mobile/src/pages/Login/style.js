@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
       color: 'blue',
       fontSize: 32,
     },
+    form: {
+
+    },
 });
 
 export default styles;
