@@ -3,7 +3,7 @@ A project made with React e NodeJs.
 
 ## :question: About the project
 
-The main goal of this project is to improve my skills with Javascript, React, Node, databases and querybuilder. <AgendaOn-2.0> was created to be an offline application that helps you to keeptrack of your tasks. You could create your owns subjects and create reminders for it.
+The main goal of this project is to improve my skills with Javascript, React, Node, databases and querybuilder. <AgendaOn-2.0> was created to be an offline application that helps you to keeptrack of your tasks. You could create your owns subjects and create reminders for it. ( IN PRODUCTION )
   
 ### :iphone: Here's a few snapshots of the app:
   
